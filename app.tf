@@ -19,9 +19,9 @@ locals {
         # Created by /usr/share/doc/wordpress/examples/setup-mysql 
         define('DB_NAME', 'Demo');
         define('DB_USER', 'demouser');
-        define('DB_PASSWORD', '${random_password.db_password}');
+        define('DB_PASSWORD', '${random_password.db_password.result}');
         define('DB_HOST', '10.5.3.100');
-        define('SECRET_KEY', '${random_password.db_secret_key}');
+        define('SECRET_KEY', '${random_password.db_secret_key.result}');
         define('WP_CONTENT_DIR', '/var/lib/wordpress/wp-content');
         ?>
         EOF
