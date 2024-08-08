@@ -13,7 +13,13 @@ locals {
         ?>
         EOF
     app_script = <<EOF
-        ping -oq updates.paloaltonetworks.com
+        #!/bin/bash
+        host=updates.paloaltonetworks.com
+        while ! ping -q -c 1 $host > /dev/null
+        do
+        printf "Boo! ${host} is not reachable.\n"
+        sleep 1
+        done
         sudo DEBIAN_FRONTEND=noninteractive apt-get update
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq apache2 wordpress
         sudo mount --bind /usr/share/wordpress/ /var/www/html/
