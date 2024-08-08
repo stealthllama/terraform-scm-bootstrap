@@ -23,7 +23,7 @@ locals {
         sudo DEBIAN_FRONTEND=noninteractive apt-get update
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq apache2 wordpress
         sudo mount --bind /usr/share/wordpress/ /var/www/html/
-        sudo echo ${local.wordpress_config} > /etc/wordpress/config-default.php
+        echo ${local.wordpress_config} | sudo tee /etc/wordpress/config-default.php
         sudo chown root:www-data /etc/wordpress/config-default.php
         EOF
 }
