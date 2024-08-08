@@ -1,17 +1,6 @@
 # Locals
 
 locals {
-    wordpress_config = <<EOF
-        <?php
-        # Created by /usr/share/doc/wordpress/examples/setup-mysql 
-        define('DB_NAME', 'Demo');
-        define('DB_USER', 'demouser');
-        define('DB_PASSWORD', 'paloalto@123');
-        define('DB_HOST', '10.5.3.100');
-        define('SECRET_KEY', 'UtqouIbh65q92QYevFJzth5Kuya3GKozJzmOq4Mv0mevSmgtlW');
-        define('WP_CONTENT_DIR', '/var/lib/wordpress/wp-content');
-        ?>
-        EOF
     app_script = <<EOF
         #!/bin/bash
         host=updates.paloaltonetworks.com
@@ -23,7 +12,6 @@ locals {
         sudo DEBIAN_FRONTEND=noninteractive apt-get update
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq apache2 wordpress
         sudo mount --bind /usr/share/wordpress/ /var/www/html/
-        #echo ${local.wordpress_config} | sudo tee /etc/wordpress/config-default.php
         sudo cat <<END > /etc/wordpress/config-default.php
         <?php
         # Created by /usr/share/doc/wordpress/examples/setup-mysql 
