@@ -15,7 +15,7 @@ locals {
         sudo sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/mariadb.conf.d/50-server.cnf
         sudo systemctl restart mysql
         sudo mysql -e "CREATE DATABASE Demo;"
-        sudo mysql -e "CREATE OR REPLACE USER 'demouser'@'%' IDENTIFIED BY 'paloalto@123';"
+        sudo mysql -e "CREATE OR REPLACE USER 'demouser'@'%' IDENTIFIED BY '${random_password.db_password}';"
         sudo mysql -e "GRANT ALL PRIVILEGES ON Demo.* TO 'demouser'@'%';"
         sudo mysql -e "FLUSH PRIVILEGES;"
         EOF

@@ -13,15 +13,15 @@ locals {
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq apache2 wordpress
         sudo mount --bind /usr/share/wordpress/ /var/www/html/
         sudo touch /etc/wordpress/config-default.php
-        sudo cat <<END > /etc/wordpress/config-default.php
         sudo chown root:www-data /etc/wordpress/config-default.php
+        sudo cat <<END >> /etc/wordpress/config-default.php
         <?php
         # Created by /usr/share/doc/wordpress/examples/setup-mysql 
         define('DB_NAME', 'Demo');
         define('DB_USER', 'demouser');
-        define('DB_PASSWORD', 'paloalto@123');
+        define('DB_PASSWORD', '${random_password.db_password}');
         define('DB_HOST', '10.5.3.100');
-        define('SECRET_KEY', 'UtqouIbh65q92QYevFJzth5Kuya3GKozJzmOq4Mv0mevSmgtlW');
+        define('SECRET_KEY', '${random_password.db_secret_key}');
         define('WP_CONTENT_DIR', '/var/lib/wordpress/wp-content');
         ?>
         EOF
