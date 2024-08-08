@@ -135,4 +135,6 @@ When the Terraform deployment completes, it will return the public IP addresses 
 
 The deployment and bootstrapped onboarding of the VM-Series firewall was successful if you are presented with the WordPress setup page.  Again, the end-to-end deployment, onboarding, and configuration may take up to fifteen minutes in total.
 
+![](images/wordpress.png)
+
 You can further verify the deployment is working by creating the Wordpress site and observing the logs either in the Strata Cloud Manager tenant.  You should see successful `web-browsing` sessions between the `untrust-zone` and `app-zone` as well as `mysql` sessions between the `app-zone` and `database-zone`.
