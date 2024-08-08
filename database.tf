@@ -6,7 +6,7 @@ locals {
         host=updates.paloaltonetworks.com
         while ! ping -q -c 1 $host > /dev/null
         do
-        printf "Boo! ${host} is not reachable.\n"
+        printf "Boo! $${host} is not reachable.\n"
         sleep 1
         done
         ping -oq updates.paloaltonetworks.com
