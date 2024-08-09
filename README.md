@@ -137,4 +137,5 @@ The deployment and bootstrapped onboarding of the VM-Series firewall was success
 
 ![](images/wordpress.png)
 
+
 You can further verify the deployment is working by creating the Wordpress site and observing the logs either in the Strata Cloud Manager tenant.  You should see successful `web-browsing` sessions between the `untrust-zone` and `app-zone` as well as `mysql` sessions between the `app-zone` and `database-zone`.
