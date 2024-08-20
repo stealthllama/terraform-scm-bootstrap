@@ -141,4 +141,4 @@ You can further verify the deployment is working by creating the Wordpress site 
 
 
 
-// Demo for Intel
+// Demo for Bell
